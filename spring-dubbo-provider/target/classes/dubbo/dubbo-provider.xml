@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- dubbo配置 20191025 -->
+    <!-- 应用名称 -->
+	<dubbo:application name="girl-provider" />
+	<!-- 注册中心配置,用于配置连接注册中心相关信息 -->
+	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	<!-- 协议配置,用于配置提供服务的协议信息,协议由提供方指定,消费方被动接受 -->
+	<dubbo:protocol name="dubbo" port="20880" />
+	<!-- 服务配置,用于暴露一个服务 -->
+	<dubbo:service interface="com.zbz.api.GirlService" ref="girlService" />
+</beans>    
